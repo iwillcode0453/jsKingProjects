@@ -1,0 +1,12 @@
+.red-button {
+	background-color: #cf1a1a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+}
+.blue-button {
+    background-color: #1a4bcf;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+}
