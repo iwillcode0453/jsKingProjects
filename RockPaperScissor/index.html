@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<p id="showHands"></p>
+		<button id="showHandsButton" onclick="determineWinner()">start game</button>
+		<p id="showWinner"></p>
+		<button id="rockButton" onclick="determineWinner('rock')">Rock</button>
+		<button id="paperButton" onclick="determineWinner('paper')">Paper</button>
+		<button id="scissorsButton" onclick="determineWinner('scissors')">Scissors</button>
+		<script src="index.js">
+			// const showHandsButton = document.getElementById("showHandsButton");
+			// const showHands = document.getElementById("showHands");
+			// const showWinner = document.getElementById("showWinner");
+			// const hands = ["rock", "paper", "scissors"];
+
+			// function userChoice() {
+			// 	let chooseHand = prompt("Choose your hand: rock, paper, or scissors");
+
+				// Check if the user input is valid
+			// 	if (!hands.includes(chooseHand)) {
+			// 		showHands.textContent =
+			// 			"Invalid choice. Please choose rock, paper, or scissors.";
+			// 		return null;
+			// 	}
+			// 	return chooseHand ? chooseHand.toLocaleLowerCase().trim() : "";
+			// }
+
+			// function computerChoice() {
+			// 	const randomIndex = Math.floor(Math.random() * hands.length);
+			// 	return hands[randomIndex];
+			// }
+
+			// function determineWinner() {
+			// 	const userHand = userChoice();
+
+				// Check if userHand is null (invalid input) and exit the function early
+				// if (!userHand) {
+				// 	showWinner.textContent = "";
+				// 	return; // Exit the function if userHand is null (invalid input)
+				// }
+
+				// const computerHand = computerChoice();
+
+				// Display the choices of userHand and ComputerHand on a web page
+				// showHands.textContent = `You chose ${userHand} and the computer chose ${computerHand}.`;
+
+			// 	if (userHand === computerHand) {
+			// 		showWinner.textContent = `It's a tie!`;
+			// 	} else if (
+			// 		(computerHand === "rock" && userHand === "scissors") ||
+			// 		(computerHand === "paper" && userHand === "rock") ||
+			// 		(computerHand === "scissors" && userHand === "paper")
+			// 	) {
+			// 		showWinner.textContent = `Computer wins!`;
+			// 	} else {
+			// 		showWinner.textContent = `You win!`;
+			// 	}
+			// 	showHandsButton.textContent = "Play again?";
+			// }
+		</script>
+	</body>
+</html>
