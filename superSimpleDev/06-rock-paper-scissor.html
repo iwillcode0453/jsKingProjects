@@ -7,98 +7,55 @@
 	</head>
 	<body>
 		<p>Welcome to the Rock, Paper, Scissors game!</p>
+
+		
+			<p id="showHands"></p>
+			<button id="rock" onclick="determineWinner('rock')">Rock</button>
+			<button id="paper" onclick="determineWinner('paper')">Paper</button>
+			<button id="scissors" onclick="determineWinner('scissors')">
+				Scissors
+			</button>
+			<button id="resetGame" onclick="playAgain()">Play again!</button>
+			<p id="showWinner">Hi</p>
 		
 
-		<div class="container" style="display: flex; justify-content: left; gap: 10px; margin-top: 20px;">
-			<button id="rock">Rock</button>
-			<button id="paper">Paper</button>
-			<button id="scissors">Scissors</button>
-		</div>
-
 		<script>
-      const rockButton = document.getElementById('rock');
-      const paperButton = document.getElementById('paper');
-      const scissorsButton = document.getElementById('scissors');
+			const hands = ["rock", "paper", "scissors"];
+			const rockButton = document.getElementById("rock");
+			const paperButton = document.getElementById("paper");
+			const scissorsButton = document.getElementById("scissors");
+			const handsDisplay = document.getElementById("showHands");
+			const winnerContainer = document.getElementById("showWinner");
+			const resetGame = document.getElementById("resetGame");
 
-			
-			let computerMove = "";
-			console.log(computerMove)
+			function getComputerMove() {
+				const randomNumber = Math.floor(Math.random() * hands.length);
+				return hands[randomNumber];
+			}
 
-      function getComputerMove() {
-        const randomNumber = Math.random();
+			// Determine Winner function
+			function determineWinner(parameter1) {
+				let computerMove = getComputerMove();
+				handsDisplay.textContent = `You chose ${parameter1} and computer chose ${computerMove}`;
 
-				if (randomNumber >= 0 && randomNumber <= 1 / 3) {
-					computerMove = 'rock';
-				} else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
-					computerMove = 'paper';
-				} else if (randomNumber >= 2 / 3 && randomNumber < 1) {
-					computerMove = 'scissor';
+				if (computerMove === parameter1) {
+					winnerContainer.textContent = "It's a tie!";
+				} else if (
+					(computerMove === "rock" && parameter1 === "scissors") ||
+					(computerMove === "paper" && parameter1 === "rock") ||
+					(computerMove === "scissors" && parameter1 === "paper")
+				) {
+					winnerContainer.textContent = "Computer wins!";
+				} else {
+					winnerContainer.textContent = "You win!";
 				}
-				console.log(computerMove);
-				return computerMove;
-			}	
-				
-				
-      
+			}
 
-      rockButton.addEventListener('click', () => {
-        getComputerMove();
-        let result = '';
-				console.log(`This is the compurter choice: "${computerMove}"`)
-
-				if (computerMove === 'rock') {
-					result = 'Tie!';
-          
-				} else if (computerMove === 'paper') {
-					result = 'You Lose!';
-         
-				} else if (computerMove === 'scissor') {
-					result = 'You Win!';
-          
-				}
-        alert(
-					`You picked Rock. The computer picked ${computerMove}. ${result}`
-				);
-        
-      })
-
-      paperButton.addEventListener('click', () => {
-        getComputerMove();
-				let result = '';
-
-				if (computerMove === 'paper') {
-					result = 'Tie!';
-          
-				} else if (computerMove === 'scissor') {
-					result = 'You Lose!';
-         
-				} else if (computerMove === 'rock') {
-					result = 'You Win!';
-          
-				}
-        alert(
-					`You picked Paper. The computer picked ${computerMove}. ${result}`
-				);
-      })
-
-      scissorsButton.addEventListener('click', () => {
-        getComputerMove();  
-				let result = '';
-
-				if (computerMove === 'scissor') {
-					result = 'Tie!';
-          
-				} else if (computerMove === 'rock') {
-					result = 'You Lose!';
-         
-				} else if (computerMove === 'paper') {
-					result = 'You Win!';
-          
-				}
-        alert(
-					`You picked Scissor. The computer picked ${computerMove}. ${result}`
-				);
-      })
-    </script>
+			// RESET GAME function
+			function playAgain() {
+				handsDisplay.textContent = "";
+				winnerContainer.textContent = "";
+			}
+		</script>
 	</body>
 </html>

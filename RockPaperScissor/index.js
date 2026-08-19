@@ -7,6 +7,7 @@ const paperButton = document.getElementById("paperButton");
 const scissorsButton = document.getElementById("scissorsButton");
 const handsDisplay = document.getElementById("showHands");
 const winnerContainer = document.getElementById("showWinner");
+const resetButton = document.getElementById("resetButton");
 
 // function userChoice() {
 // 	let userInput = prompt(`Choose you hand: `);
@@ -53,4 +54,9 @@ function determineWinner(parameter1) {
 	} else {
 		winnerContainer.textContent = "You win!";
 	}
+}
+
+function resetGame () {
+	handsDisplay.textContent = "";
+	winnerContainer.textContent = "";
 }
